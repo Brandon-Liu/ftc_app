@@ -1,0 +1,28 @@
+package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.*;
+
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
+@TeleOp(name="SpinMotor")
+public class MOTORSPINING extends OpMode{
+    public DcMotor motorSpin;
+
+    public void init(){
+        motorSpin = hardwareMap.dcMotor.get("spinMotor");
+        motorSpin.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorSpin.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorSpin.setZeroPowerBehavior(DcMotor.ZeroPowerBehaviot.BRAKE);
+        public void loop(){
+           if(gamepad2.dpad_right){
+               motorSpin.setTargetPosition(280);
+        }
+            else (gamepad2.dpad_left){
+               motorSpin.setTragetPostion(-280);
+           }
+           else if {
+                motorSpin.setPower(0);
+        }
+    }
+}
